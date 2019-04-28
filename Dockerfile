@@ -4,11 +4,11 @@ LABEL org.label-schema.schema-version="1.0" \
     org.label-schema.name="PHP-FRPM Docker Image" \
     org.label-schema.vendor="AlleoTech" \
     org.label-schema.livence="MIT" \
-    org.label-schema.build-data="2019030801"
+    org.label-schema.build-data="2019042801"
 
-MAINTAINER AlleoTech <info@alleo.tech>
+MAINTAINER AlleoTech <admin@alleo.tech>
 
-ARG PHP_VETRSION=71
+ARG PHP_VETRSION=72
 
 # Enable Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
@@ -47,6 +47,9 @@ RUN yum -y install --setopt=tsflags=nodocs git \
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
 RUN mkdir /run/php-fpm
 
+COPY etc/php-fpm.d/www.pool /etc/php-fpm.d/www.conf
+COPY run.sh /usr/local/bin/run.sh
+
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm", "-F", "-R"]
+CMD ["/usr/local/bin/run.sh"]

@@ -1,0 +1,9 @@
+[www]
+listen = 0.0.0.0:9000
+listen.allowed_clients = 0.0.0.0
+user = nobody
+group = nobody
+
+pm = static
+pm.max_children = 10
+pm.max_requests = 300
