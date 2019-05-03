@@ -43,6 +43,13 @@ mkdir -p $PHP_SESSION_SAVE_PATH
 chown nobody: /var/lib/php -R
 chown nobody: $PHP_SESSION_SAVE_PATH -R
 
+echo "Configure Cache"
+sed -i -e "s~^;?realpath_cache_size = .*$~realpath_cache_size = 128KB~g" /etc/php.ini
+sed -i -e "s~^;?opcache\.validate_timestamps=.*$~opcache\.validate_timestamps=1~g" /etc/php.d/10-opcache.ini
+sed -i -e "s~^;?opcache\.revalidate_freq=.*$~opcache\.revalidate_freq=60~g" /etc/php.d/10-opcache.ini
+sed -i -e "s~^;?opcache\.fast_shutdown=.*$~opcache\.fast_shutdown=1~g" /etc/php.d/10-opcache.ini
+
+
 if [[ -z "$FPM_MAX_CHILDREN" ]];
 then
 	FPM_MAX_CHILDREN=5
