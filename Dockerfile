@@ -26,6 +26,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-cli \
     php-common \
     php-gd \
+	php-bcmath \
     php-intl \
     php-json \
     php-ldap \
@@ -40,11 +41,13 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-xml \
     php-xmlrpc \
     php-fpm \
+	php-pecl-imagick \
     && yum clean all \
     && rm -rf /var/cache/yum
 
 # Configure PHP
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
+RUN sed -i -e 's~^;;log_level = notice~log_level = error~g' /etc/php-fpm.conf
 RUN mkdir /run/php-fpm
 
 COPY etc/php-fpm.d/www.pool /etc/php-fpm.d/www.conf
