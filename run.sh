@@ -46,6 +46,7 @@ chown nobody: $PHP_SESSION_SAVE_PATH -R
 echo "Configure Cache"
 sed -i -r -e "s~^;?realpath_cache_size = .*$~realpath_cache_size = 4M~g" /etc/php.ini
 sed -i -r -e "s~^;?realpath_cache_ttl = .*$~realpath_cache_ttl = 120~g" /etc/php.ini
+sed -i -r -e "s~^;?expose_php = .*$~expose_php = Off~g" /etc/php.ini
 sed -i -r -e "s~^;?opcache\.validate_timestamps=.*$~opcache\.validate_timestamps=1~g" /etc/php.d/10-opcache.ini
 sed -i -r -e "s~^;?opcache\.revalidate_freq=.*$~opcache\.revalidate_freq=180~g" /etc/php.d/10-opcache.ini
 # Removed due to (https://tideways.com/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
