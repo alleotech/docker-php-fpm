@@ -47,7 +47,7 @@ echo "Configure Cache"
 sed -i -r -e "s~^;?realpath_cache_size = .*$~realpath_cache_size = 4M~g" /etc/php.ini
 sed -i -r -e "s~^;?realpath_cache_ttl = .*$~realpath_cache_ttl = 120~g" /etc/php.ini
 sed -i -r -e "s~^;?opcache\.validate_timestamps=.*$~opcache\.validate_timestamps=1~g" /etc/php.d/10-opcache.ini
-sed -i -r -e "s~^;?opcache\.revalidate_freq=.*$~opcache\.revalidate_freq=60~g" /etc/php.d/10-opcache.ini
+sed -i -r -e "s~^;?opcache\.revalidate_freq=.*$~opcache\.revalidate_freq=180~g" /etc/php.d/10-opcache.ini
 # Removed due to (https://tideways.com/profiler/blog/fine-tune-your-opcache-configuration-to-avoid-caching-suprises)
 #sed -i -r -e "s~^;?opcache\.fast_shutdown=.*$~opcache\.fast_shutdown=1~g" /etc/php.d/10-opcache.ini
 sed -i -r -e "s~^;?opcache\.file_cache=.*$~opcache\.file_cache=/var/lib/php/opcache~g" /etc/php.d/10-opcache.ini
