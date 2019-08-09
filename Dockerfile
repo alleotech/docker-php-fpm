@@ -1,14 +1,14 @@
 FROM centos:centos7
 
 LABEL org.label-schema.schema-version="1.0" \
-    org.label-schema.name="PHP-FRPM Docker Image" \
-    org.label-schema.vendor="AlleoTech" \
+    org.label-schema.name="PHP-FPM Docker Image" \
+    org.label-schema.vendor="AlleoTech Ltd" \
     org.label-schema.livence="MIT" \
     org.label-schema.build-data="2019042801"
 
 MAINTAINER AlleoTech <admin@alleo.tech>
 
-ARG PHP_VETRSION=72
+ARG PHP_VERSION=72
 
 # Enable Networking
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
@@ -17,16 +17,16 @@ RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm \
     && yum-config-manager --enable epel \
-    && yum-config-manager --enable remi-php${PHP_VETRSION}
+    && yum-config-manager --enable remi-php${PHP_VERSION}
 
 
-# Install PHP and Tools 
+# Install PHP and Tools
 RUN yum -y install --setopt=tsflags=nodocs git \
     openssh-clients \
     php-cli \
     php-common \
     php-gd \
-	php-bcmath \
+    php-bcmath \
     php-intl \
     php-json \
     php-ldap \
@@ -41,8 +41,8 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-xml \
     php-xmlrpc \
     php-fpm \
-	php-pecl-imagick \
-	php-pecl-gearman \
+    php-pecl-imagick \
+    php-pecl-gearman \
     && yum clean all \
     && rm -rf /var/cache/yum
 
