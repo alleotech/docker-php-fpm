@@ -49,7 +49,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
 # Configure PHP
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
 RUN sed -i -e 's~^;;log_level = notice~log_level = error~g' /etc/php-fpm.conf
-RUN mkdir /run/php-fpm
+RUN mkdir -p /run/php-fpm
 
 COPY etc/php-fpm.d/www.pool /etc/php-fpm.d/www.conf
 COPY run.sh /usr/local/bin/run.sh
