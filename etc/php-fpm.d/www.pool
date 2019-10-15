@@ -9,5 +9,3 @@ pm.max_requests = 300
 
 catch_workers_output = yes
 php_admin_flag[log_errors] = on
-slowlog = /var/log/php-fpm/slow.log
-request_slowlog_timeout = 30s
