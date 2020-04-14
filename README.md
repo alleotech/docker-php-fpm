@@ -8,7 +8,9 @@ PHP-FPM Docker Image by [AlleoTech Ltd](https://alleo.tech).
 
 ## Usage
 
+```
 docker run -d --name php-fpm alleotech/php-fpm
+```
 
 ## Configuration via ENV
 
