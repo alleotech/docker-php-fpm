@@ -44,6 +44,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-pecl-imagick \
     php-pecl-gearman \
     mysql \
+    which \
     zip \
     unzip \
     && yum clean all \
