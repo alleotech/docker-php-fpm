@@ -23,6 +23,7 @@ escaped accordingly (see PHP_ERROR_REPORTING as an example).
 * PHP_ERROR_REPORTING: `php.ini` error_reporing (default: `E_ALL \\& ~E_DEPRECATED \\& ~E_STRICT`)
 * PHP_POST_MAX_SIZE: `php.ini` php_post_max_size (default: `8M`)
 * PHP_UPLOAD_MAX_FILESIZE: `php.ini` upload_max_filesize (default: `8M`)
+* PHP_MAX_EXECUTION_TIME: `php.ini` max_execution_time (default: `30`)
 * PHP_SESSION_SAVE_PATH: `php.ini` session.save_path (default: `/var/lib/php/session`)
 * FPM_MAX_CHILDREN: `php-fpm.d/www.conf` pm.max_children (default: `5`)
 
