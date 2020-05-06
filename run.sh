@@ -21,9 +21,6 @@ then
 	PHP_POST_MAX_SIZE=8M
 fi
 
-echo "Adjusting PHP post max size to [$PHP_POST_MAX_SIZE]"
-sed -i -r -e "s/^;?post_max_size = .*$/post_max_size = $PHP_POST_MAX_SIZE/g" /etc/php.ini
-
 if [[ -z "$PHP_UPLOAD_MAX_FILESIZE" ]];
 then
 	PHP_UPLOAD_MAX_FILESIZE=8M
@@ -31,6 +28,17 @@ fi
 
 echo "Adjusting PHP upload max file size to [$PHP_UPLOAD_MAX_FILESIZE]"
 sed -i -r -e "s/^;?upload_max_filesize = .*$/upload_max_filesize = $PHP_UPLOAD_MAX_FILESIZE/g" /etc/php.ini
+
+echo "Adjusting PHP post max size to [$PHP_POST_MAX_SIZE]"
+sed -i -r -e "s/^;?post_max_size = .*$/post_max_size = $PHP_POST_MAX_SIZE/g" /etc/php.ini
+
+if [[ -z "$PHP_MAX_EXECUTION_TIME" ]];
+then
+	PHP_MAX_EXECUTION_TIME=30
+fi
+
+echo "Adjusting PHP max execution time to [$PHP_MAX_EXECUTION_TIME]"
+sed -i -r -e "s/^;?max_execution_time = .*$/max_execution_time = $PHP_MAX_EXECUTION_TIME/g" /etc/php.ini
 
 if [[ -z "$PHP_SESSION_SAVE_PATH" ]];
 then
