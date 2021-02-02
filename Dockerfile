@@ -37,6 +37,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-opcache \
     php-pdo \
     php-pecl-apcu \
+    php-pgsql \
     php-process \
     php-soap \
     php-xml \
