@@ -40,6 +40,15 @@ fi
 echo "Adjusting PHP max execution time to [$PHP_MAX_EXECUTION_TIME]"
 sed -i -r -e "s/^;?max_execution_time = .*$/max_execution_time = $PHP_MAX_EXECUTION_TIME/g" /etc/php.ini
 
+if [[ -z "$PHP_MAX_INPUT_VARS" ]];
+then
+	PHP_MAX_INPUT_VARS=1000
+fi
+
+echo "Adjusting PHP max input vars to [$PHP_MAX_INPUT_VARS]"
+sed -i -r -e "s/^;?max_input_vars = .*$/max_input_vars = $PHP_MAX_INPUT_VARS/g" /etc/php.ini
+
+
 if [[ -z "$PHP_SESSION_SAVE_PATH" ]];
 then
 	PHP_SESSION_SAVE_PATH="/var/lib/php/session"
