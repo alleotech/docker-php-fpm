@@ -46,6 +46,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-pecl-imagick \
     php-pecl-gearman \
     php-zip \
+    cronie \
     mysql \
     which \
     zip \
