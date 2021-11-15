@@ -37,6 +37,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-opcache \
     php-pdo \
     php-pecl-apcu \
+    php-pecl-redis \
     php-pgsql \
     php-process \
     php-soap \
@@ -46,6 +47,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-pecl-imagick \
     php-pecl-gearman \
     php-zip \
+    cronie \
     mysql \
     which \
     zip \
