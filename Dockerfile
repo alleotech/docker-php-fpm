@@ -19,6 +19,8 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     && yum-config-manager --enable epel \
     && yum-config-manager --enable remi-php${PHP_VERSION}
 
+RUN yum update ca-certificates -y
+
 
 # Install PHP and Tools
 RUN yum -y install --setopt=tsflags=nodocs git \
@@ -37,6 +39,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-opcache \
     php-pdo \
     php-pecl-apcu \
+    php-pecl-redis \
     php-pgsql \
     php-process \
     php-soap \
@@ -46,6 +49,7 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-pecl-imagick \
     php-pecl-gearman \
     php-zip \
+    cronie \
     mysql \
     which \
     zip \
