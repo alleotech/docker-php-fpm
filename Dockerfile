@@ -19,7 +19,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
     && yum-config-manager --enable epel \
     && yum-config-manager --enable remi-php${PHP_VERSION}
 
-RUN yum update ca-certificates
+RUN yum update ca-certificates -y
 
 
 # Install PHP and Tools
